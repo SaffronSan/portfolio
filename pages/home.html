@@ -1,3 +1,59 @@
-<section>
-    <h1>home page</h1>
+<style>
+    .hero{
+        position: relative;
+        width: 100%;
+    }
+    .hero-container{
+        display: flex; 
+        flex-direction: column; 
+        align-items: center;
+        text-align: center; 
+        position: absolute; 
+        justify-content: center;
+        padding: 1rem;
+        top: 30%;
+        left: 15%;
+        width: 30rem;
+        height: 15rem;
+    }   
+    .hero-container > *{
+        margin: .25rem 0rem;
+    }
+    .hero-container > h1{
+        font-size: 3.5rem;
+    }
+    .hero-container > p{
+        font-size: 1.5rem;
+    }
+    .hero-img{
+        position: relative; 
+        display: flex; 
+        align-content: 
+        center; width: full;
+    }
+    .hero-img > img{
+        margin: 0rem 0rem 0rem auto; 
+        width: fit-content; 
+        height: 72rem;
+    }
+
+</style>
+
+<section class="hero">
+    <div class="hero-img">
+        <img src="img/Stock_Guy.png" alt="background" srcset=""/>
+    </div>
+    
+    <div class="hero-container background shadow-md container-border p-2">
+        <h1 class="font-title bg-inherit primary">Anish Thapa </h1>
+        <p class="font-body bg-inherit">
+            Your next Web Developer
+        </p>
+        <button onClick="switchPage('about.html',2)" class="border-full shadow-md p-2 font-body btn-pill mx-auto" style="">
+            More Info 
+        </button>
+    </div>
+
+
+    
 </section>
