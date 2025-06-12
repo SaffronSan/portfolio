@@ -1,0 +1,29 @@
+footer{
+    font-size: var(--text-xs);
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+}
+.foo-main{
+    display: flex;
+    overflow-x: hidden;
+}
+.foo-main > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+h6{
+    font-size: var(--text-sm);
+    color: var(--blue-800);
+}
+blockquote span{
+    display: inline;
+}
+.foo-pages-container > button{
+    transition: all .5s linear;
+}
+.foo-pages-container > button:hover{
+    color: var(--blue-600);
+}
