@@ -1,0 +1,115 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    background-color: var(--zinc-100);
+    font-size: 1rem;
+}
+/*Main Containers */
+.container{
+    display: flex;
+    padding: 1rem;
+    width: 50rem;
+    align-content: center;
+    margin: 0rem auto;
+}
+.container > *{
+    background-color: inherit;
+}
+.container-border{
+    border-radius: 1.25rem;
+}
+/*Cards*/
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /*height: 35rem;*/
+    width: 55rem;
+    margin: .25rem 1.5rem;
+}
+.card > button{
+    background-color: var(--blue-600);
+}
+.card > img{
+    width: 30vh;
+    height: 30vh;
+}
+.banner{
+    position: relative;
+    width: 80rem;
+    margin: .5rem auto;
+    display: flex;
+    justify-content: space-evenly;
+    overflow: auto;
+}
+.flat{
+    position: relative;
+    width: 60rem;
+    height: 30rem;
+    display: flex;
+}
+.cards-controls{
+    display: flex;
+    justify-content: space-between;
+    width: 4.75rem;
+    margin: 0rem 0rem 0rem auto;
+}
+.cards-controls > button{
+    border: none;
+    outline: none;
+    background-color: white;
+}
+/*Buttons*/
+.btn-pill{
+    color:white; 
+    border:none; 
+    outline: none; 
+    padding: 1.25rem;
+    margin: 0rem auto;
+    background-color: var(--blue-600);
+}
+.btn-pill:hover{
+    background-color: var(--blue-700);
+    cursor: pointer;
+}
+button{
+    cursor: pointer;
+}
+/*Fonts & fonts*/
+.text-base{
+    font-size: 1rem;
+}
+.text-mainbody{
+    font-size: 1.25rem;
+    line-height: calc(2/1.75);
+}
+.text-title{
+    font-size: 1.5rem;
+    line-height: 1;
+    text-align: center;
+}
+.font-title {
+  font-family: "Noto Sans Ethiopic", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.font-title > *{
+    font-family: "Noto Sans Ethiopic", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+.font-body{
+  font-family: "Noto Sans Ethiopic", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.material-icons, .card > *{
+    background-color: inherit;
+}
+i{
+    background-color: inherit;
+    color: black;
+}
+i:hover{
+    color: var(--blue-600);
+}
