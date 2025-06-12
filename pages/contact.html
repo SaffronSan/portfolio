@@ -1,3 +1,58 @@
+<style>
+   .fourm > div > input,textarea{
+      border: none;
+      background-color: white;
+      outline: none;
+      font-size: 1.25rem;
+      padding: 1rem;
+      margin-left: .25rem;
+      cursor: pointer;
+      border-radius: 2rem;
+      transition: color .25s ease-in-out;
+      font-weight: 500;
+      width: fit-content;
+      box-shadow: var(--shadow-sm);
+      font-family: "Noto Sans Ethiopic", sans-serif;
+   }
+   .fourm > div{
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+       margin-inline-end: 1.5rem;
+   }
+   .fourm > div > label{
+      background-color: var(--background);
+      padding: 1rem;
+      border-radius: 1rem;
+      width: fit-content;
+      font-family: "Noto Sans Ethiopic", sans-serif;
+   }
+   textarea{
+      width: 170px;
+      height: 150px;
+   }
+</style>
+
 <section>
-    <h1>contact page</h1>
+   <div class="flex-cols mx-auto align-center space-y-1">
+    <h2 class="shadow-md size-fit p-2 background container-border font-title text-md">Contact Page</h2>
+    <p class="shadow-md size-fit p-2 background container-border font-body">
+         This is the contact page where, you could submit a message to me. 
+   </p>
+    <div class="fourm flex-cols space-y-1 p-2">
+      <div>
+         <label name="fake">Your Name</label>
+         <input placeholder="Username" type="text" name="fake" id=""/>
+      </div>
+      <div>
+         <label name="fake">Your Email</label>
+         <input placeholder="Email" type="text" name="fake" id=""/>
+      </div>
+      <div>
+         <label name="fake">A message</label>
+         <textarea placeholder="Say something!" name="fake" id=""></textarea>
+      </div>
+      <button class="border-full shadow-md p-2 font-body btn-pill ">Submit</button>
+    </div>
+   </div>
 </section>
