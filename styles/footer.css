@@ -21,10 +21,14 @@ h6{
     font-size: var(--text-b1);
 }
 .fa-brands{
-    font-size: var(--text-b2);
+    font-size: var(--text-t1);
 }
 blockquote span{
     display: block;
+}
+.foo-pages-container{
+    display: flex;
+    flex-direction: column;
 }
 .foo-pages-container > button{
     transition: all .5s linear;
@@ -47,5 +51,9 @@ blockquote span{
     }
     blockquote span{
         display: inline;
+    }
+    .foo-pages-container{
+        display: flex;
+        flex-direction: row;
     }
 }

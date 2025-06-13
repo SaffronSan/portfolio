@@ -193,7 +193,7 @@ function cardContainerFactory(data,location){
   let card_container = document.createElement("section"), card_container_title = document.createElement("h3");
   card_container.className = data.type;
   card_container.id = "inside-"+location;
-  card_container_title.className ="background shadow-md p-2 container-border my-1 font-title size-fit text-sm primary"
+  card_container_title.className ="background shadow-md p-2 container-border font-title text-sm primary w-fit"
   card_container_title.innerText = data.title;
   data.content.map((item => {
     card_container.append(cardInfo(item,data.type));
@@ -208,7 +208,7 @@ function cardInfo(info,type){
       img = document.createElement("img"),
       btn = document.createElement("button"),
       des = document.createElement("p");
-  md.className = "card container-border background shadow-md p-2 space-y-1 flex-cols align-center w-fit";
+  md.className = "card container-border background shadow-md space-y-1";
   h.className = "text-title font-title accent";
   h.innerText = info.title;
   img.src = info.src;

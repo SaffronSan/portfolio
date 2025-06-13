@@ -3,7 +3,7 @@
     padding: 0%;
     background-color: var(--zinc-100);
     font-size: var(--text-base);
-     transition: all .5s ease-in;
+     transition: all .75s ease-in;
 }
 body{
     display: flex;
@@ -32,29 +32,40 @@ main{
     border-radius: 1.55rem;
 }
 /*Cards*/
+.title-desc{
+    text-wrap: wrap;
+    width: 40vh;
+}
+.card-holder{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
 .card{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     /*height: 35rem;*/
-    width: 55rem;
-    margin: .25rem 1.5rem;
+    width: 30vh;
+    padding: var(--padding-c1);
     text-align: center;
+    align-items: center;
 }
 .card > button{
     background-color: var(--blue-600);
 }
 .card > img{
-    width: 30vh;
-    height: 30vh;
+    width: 25vh;
+    height: 25vh;
 }
 .banner{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
     position: relative;
-    width: 80rem;
-    margin: .5rem auto;
-    display: flex;
-    justify-content: space-evenly;
     overflow: auto;
+    align-items: center;
 }
 .flat{
     position: relative;
@@ -145,5 +156,20 @@ i:hover{
         grid-template-rows: repeat(2, 1fr);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
+    }
+    .banner{
+        width: 70vh;
+        margin: .5rem auto;
+        display: flex;
+    }
+    .card-holder{
+        width: 80rem;
+    }
+    .card{
+        margin: .25rem 1.5rem;
+    }
+    .card > img{
+        width: 30vh;
+        height: 30vh;
     }
 }
