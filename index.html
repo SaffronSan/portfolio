@@ -2,21 +2,132 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>  
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Site</title>
     <link rel="icon" type="image/x-icon" href="img/logo-6.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/generic.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@100..900&display=swap" rel="stylesheet">
-    <script src="main.js"></script>
 </head>
     <body>
-        <header class="navbar"> </header>
-        <main class="main-content"> </main>
-        <footer class="mfoo font-body"> </footer>
+        <header class="navbar">
+            <section class="nav-container">
+                <img style="margin: 0rem 0rem 0rem .25rem" class=" size-8 space-y-1" src="img/logo-6.png" alt=""/>
+                <div class=" shadow-md background container-border nav-btn-cont font-title">
+                    <button class="" id="nav-1" onClick="switchPage('home',1)">Home</button>
+                    <button id="nav-2" onClick="switchPage('about',2)">About</button>
+                    <button id="nav-3" onClick="switchPage('project',3)">Projects</button>
+                    <button id="nav-4" onClick="switchPage('contact',4)">Contact</button>
+                    <button id="nav-5" onClick="switchPage('docs',5)">Docs</button>
+                </div>
+                <button class="btn-none background shadow-md p-2 container-border">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                </button>
+            </section>
+        </header>
+        <main class="main-content">
+
+            
+        
+        <section id="home" class="hero">
+            <div class="hero-container background shadow-md container-border p-2 size-fit">
+                <h1 class="font-title bg-inherit primary">Anish Thapa </h1>
+                <p class="font-body bg-inherit">
+                    Your next Web Developer
+                </p>
+                <button onClick="switchPage('about.html',2)" class="border-full shadow-md p-1 font-body btn-pill mx-auto">
+                    More Info 
+                </button>
+            </div>
+            <div class="hero-img">
+                <img src="img/logo-6.png" alt="background" srcset=""/>
+            </div>
+        </section>
+
+
+        <section id="about">
+            <div class="flex-cols">
+                <h1 class="background shadow-md container container-border my-1 font-title size-fit text-md primary">
+                    Anish Thapa
+                </h1>
+                <p class="text-mainbody font-body mt-1 background shadow-md  container-border p-2 title-desc"> 
+                    I am a rising Junior, who is studying to become a future software developer!
+                </p>
+            </div>
+            <div class="mx-auto card-holder">
+                <div id="edu-cont"></div>
+                <div id="anime-cont"></div>
+            </div>
+        </section>
+        
+
+        <section id="contact">
+            <div class="flex-cols mx-auto align-center space-y-1">
+                <h2 class="shadow-md size-fit p-2 background container-border font-title text-md">Contact Page</h2>
+                <p class="shadow-md size-fit p-2 background container-border font-body">
+                    This is the contact page where, you could submit a message to me. 
+            </p>
+                <div class="fourm flex-cols space-y-1 p-2">
+                <div>
+                    <label name="fake">Your Name</label>
+                    <input placeholder="Username" type="text" name="fake" id=""/>
+                </div>
+                <div>
+                    <label name="fake">Your Email</label>
+                    <input placeholder="Email" type="text" name="fake" id=""/>
+                </div>
+                <div>
+                    <label name="fake">A message</label>
+                    <textarea placeholder="Say something!" name="fake" id=""></textarea>
+                </div>
+                <button class="border-full shadow-md p-2 font-body btn-pill ">Submit</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="project">
+            <div class="mx-auto card-holder">
+                <div id="proj-cont"></div>
+            </div>
+        </section>
+
+        <section id="docs">
+
+        </section>
+
+        </main>
+        <footer class="mfoo font-body"> 
+            <section class="foo-main background justify-even">
+        <div class="">
+            <h6>Anish Thapa</h6>
+            <img class="bg-inherit size-4" src="img/logo-6.png" alt="">
+            <blockquote class="text-italic">
+                <span>"Do it for,</span>
+                <span>the fun of it!"</span>
+            </blockquote>
+        </div>
+        <div class="">
+            <h6 class="">
+                Pages
+            </h6>
+            <div class="foo-pages-container space-x-1">
+
+            </div>
+            <p class="text-italic">Copy &copy; right 2025</p>
+        </div>
+        <div class="">
+            <h6>Contact</h6>
+            <div class="social-container flex justify-between space-x-2 "></div>
+            <addres class="text-italic bg-inherit">test@gmail.com</address>
+        </div>
+
+    </section>
+        </footer>
+            <script src="main.js"></script>
     </body>
 </html>

@@ -1,6 +1,5 @@
 footer{
     font-size: var(--text-b1);
-    width: 100%;
 }
 .foo-main{
     display: flex;

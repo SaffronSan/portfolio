@@ -3,7 +3,7 @@ async function pageLoad(page,id){
   await fetch(url)
   .then(res => res.text())
   .then(html =>{
-    document.querySelector(".main-content").innerHTML = html;
+    document.querySelector("main").innerHTML = html;
     document.getElementById(`nav-${id}`).classList.add("nav-active");
     document.querySelector("title").innerText = page.charAt(0).toUpperCase() + page.slice(1).replace(".html",'');
     for(let i = 1; i < 6; i++){
@@ -20,9 +20,10 @@ async function pageLoad(page,id){
   })
 }
 function switchPage(page,id){
-  pageLoad(page,id).then(()=>{
+  /*pageLoad(page,id).then(()=>{
     loadExtra();
-  })
+  })*/
+ showPage(page);
 }
 function getFromLocalStorage(key) {
   // Check if local storage is supported by the browser
@@ -66,16 +67,20 @@ function loadExtra(){
 }
 async function onLoad(){
   await loadCompts("navbar","navbar").then((res)=>{
+    /*
     if(getFromLocalStorage("last_page") === "any"){
-      switchPage("home.html",1);
+      switchPage("home",1);
     }else{
       switchPage(getFromLocalStorage("last_page"),getFromLocalStorage("pID"))
-
-    }
+    }*/
+    cardContainerFactory(education,"edu-cont");
+    cardContainerFactory(animes,"anime-cont");
+    cardContainerFactory(projects,"proj-cont");
+    showPage("home");
     /* Imports footer */
     loadCompts("footer","mfoo").then((res)=>{
       /*Creates Buttons for pages */
-    ["Home", "About", "Project", "Contact","Docs"].map((item,id)=>{
+    pages.map((item,id)=>{
       let btn = document.createElement("button");
       btn.innerText = item;
       btn.className = "btn-none p-1 background foo-btn";
@@ -107,7 +112,7 @@ const socialsIcons = [{icon: "github", href:
 const education = {
   title : "Educations & Major",
   loction: "edu-cont",
-  type: "banner",
+  type: "flat-grid",
   content: [
     {
       title: "Phillip O. Berry Academy of Technology",
@@ -131,7 +136,7 @@ const education = {
 }, animes = {
   title : "Favorite Anime",
   loction: "anime-cont",
-  type: "banner",
+  type: "flat-grid",
   content: [
     {
       title: "One piece",
@@ -208,8 +213,8 @@ function cardInfo(info,type){
       img = document.createElement("img"),
       btn = document.createElement("button"),
       des = document.createElement("p");
-  md.className = "card container-border background shadow-md space-y-1";
-  h.className = "text-title font-title accent";
+  md.className = "card space-y-1";
+  h.className = "text-title font-title background container-border shadow-md p-1";
   h.innerText = info.title;
   img.src = info.src;
   img.className = "container-border background shadow-md";
@@ -224,11 +229,41 @@ function cardInfo(info,type){
  return md;
 }
 
+function showPage(page){
+  pages.map((item)=>{
+    if(item.toLocaleLowerCase() === page){
+      //console.log("Current: "+page)
+      document.querySelector(`#${item.toLocaleLowerCase()}`).classList.remove("hide");
+      activePage = page
+    }else{
+      //console.log(item.toLocaleLowerCase(), page,item.toLocaleLowerCase() === page)
+      document.querySelector(`#${item.toLocaleLowerCase()}`).classList.add("hide");
+    }
+  })
+}
+let activePage = "Home", pages = ["Home", "About", "Project", "Contact","Docs"];
+switchPage("home",1);
 
+  cardContainerFactory(education,"edu-cont");
+  cardContainerFactory(animes,"anime-cont");
+  cardContainerFactory(projects,"proj-cont");
 
-
-
-
-
-
-onLoad();
+pages.map((item,id)=>{
+  let btn = document.createElement("button");
+  btn.innerText = item;
+  btn.className = "btn-none p-1 background foo-btn";
+  btn.onclick = () => {
+    switchPage(item.toLocaleLowerCase()+".html",(id+1))
+  }
+  document.querySelector(".foo-pages-container").append(btn);
+})
+/* Creates Social Media links with icons */
+socialsIcons.map((item) => {
+  let a = document.createElement("a"), i = document.createElement("i");
+  a.className = "bg-inherit";
+  a.href = item.href;
+  a.target = "blank";
+  i.className = `fa-brands fa-${item.icon}`;
+  a.append(i);
+  document.querySelector(".social-container").append(a);
+})

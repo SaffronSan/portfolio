@@ -25,10 +25,11 @@
     display: flex; 
     align-content: center; 
     margin: auto 0rem 0rem 0rem; 
+    height: 100%;
+    max-height: 68rem;
 }
 .hero-img > img{
-    width: fit-content; 
-    height: 60vh;
+    height: 100%;
 }
 @media (width >= 48rem) {
     .hero{

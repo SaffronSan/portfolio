@@ -4,13 +4,18 @@
     box-sizing: border-box;
     background-color: var(--zinc-100);
     font-size: var(--text-base);
-    transition: all .75s ease-in;
     font-weight: var(--bold-lvl-1);
 }
+html{
+    display: block;
+}
 body{
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    width: 100%;
-
+}
+main{
+    flex-grow: 1;
 }
 /*Main Containers */
 .container{
@@ -29,7 +34,8 @@ body{
 /*Cards*/
 .title-desc{
     text-wrap: wrap;
-    width: 40vh;
+    width: 100%;
+    max-width: 40vh;
 }
 .card-holder{
     display: flex;
@@ -41,17 +47,19 @@ body{
     flex-direction: column;
     justify-content: space-between;
     /*height: 35rem;*/
-    width: 30vh;
     padding: var(--padding-c1);
     text-align: center;
     align-items: center;
+    width: 100%;
+    max-width: 30vh;
+    margin: .25rem 1.5rem;
 }
 .card > button{
     background-color: var(--blue-600);
 }
 .card > img{
-    width: 25vh;
-    height: 25vh;
+    width: 100%;
+    height: auto;
 }
 .banner{
     display: grid;
@@ -61,12 +69,6 @@ body{
     position: relative;
     align-items: center;
     overflow: scroll;
-}
-.flat{
-    position: relative;
-    width: 60rem;
-    height: 30rem;
-    display: flex;
 }
 .flat-grid{
     display: grid;
@@ -142,6 +144,52 @@ i{
 i:hover{
     color: var(--blue-600);
 }
+.fourm > div > input,textarea{
+    border: none;
+    background-color: white;
+    outline: none;
+    font-size: 1.25rem;
+    padding: 1rem;
+    margin-left: .25rem;
+    cursor: pointer;
+    border-radius: 2rem;
+    transition: color .25s ease-in-out;
+    font-weight: 500;
+    width: fit-content;
+    box-shadow: var(--shadow-sm);
+    font-family: "Noto Sans Ethiopic", sans-serif;
+}
+.fourm > div{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-inline-end: 1.5rem;
+}
+.fourm > div > label{
+    background-color: var(--background);
+    padding: 1rem;
+    border-radius: 1rem;
+    width: fit-content;
+    font-family: "Noto Sans Ethiopic", sans-serif;
+}
+textarea{
+    width: 170px;
+    height: 150px;
+}
+
+
+.hide{
+    opacity: 0;
+    display: none;
+}
+
+.hero-img > img{
+  width: 100%;
+  max-width: 30dvh;
+  height: auto;
+}
+
+
 @media (width >= 48rem) {
     .btn-pill{
         font-size: var(--text-b2);
@@ -155,16 +203,11 @@ i:hover{
     .banner{
         width: 70vh;
         margin: .5rem auto;
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
     }
     .card-holder{
         width: 80rem;
-    }
-    .card{
-        margin: .25rem 1.5rem;
-    }
-    .card > img{
-        width: 30vh;
-        height: 30vh;
     }
 }

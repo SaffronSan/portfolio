@@ -5,7 +5,7 @@
     padding: 0rem;
 }
 .nav-btn-cont{
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.75rem;
     display: flex;
     justify-content: space-around;
     margin: .5rem auto;
@@ -21,6 +21,7 @@
   border-radius: 2rem;
   transition: color .25s ease-in-out;
   font-weight: 400;
+  margin-inline-end: .5rem;
 }
 .nav-btn-cont > button:hover{
     color: var(--blue-600);
@@ -32,8 +33,8 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 5vh;
-    padding: .25rem;
+    width: fit-content;
+    padding: .5rem;
     margin: .5rem;
 }
 .setting > button{
@@ -46,9 +47,7 @@
     border-radius: 99999rem;
 }
 @media (width >= 48rem)  {
-    .nav-btn-cont{
-        width: 40vh;
-    }
+
   .nav-btn-cont > button{
     font-size: var(--text-t2);
     }
