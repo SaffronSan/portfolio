@@ -1,29 +1,24 @@
-async function pageLoad(page,id){
-  const url = 'pages/' + page + '?v=' + new Date().getTime();
-  await fetch(url)
-  .then(res => res.text())
-  .then(html =>{
-    document.querySelector("main").innerHTML = html;
-    document.getElementById(`nav-${id}`).classList.add("nav-active");
-    document.querySelector("title").innerText = page.charAt(0).toUpperCase() + page.slice(1).replace(".html",'');
-    for(let i = 1; i < 6; i++){
-      if(i != id){
-        document.getElementById(`nav-${i}`).classList.remove("nav-active")
-      }
-    }
-    saveToLocalStorage("last_page",page);
-    saveToLocalStorage("pID",id);
-    return "Finished"
-  })
-  .catch((err)=>{
-    return err
-  })
-}
+
 function switchPage(page,id){
-  /*pageLoad(page,id).then(()=>{
-    loadExtra();
-  })*/
- showPage(page);
+  showPage(page);
+  saveToLocalStorage("last_page",page);
+  saveToLocalStorage("pID",id);
+  document.getElementById(`nav-${id}`).classList.add("nav-active");
+  for(let i = 1; i < 5; i++){
+    if(i != id){
+      document.getElementById(`nav-${i}`).classList.remove("nav-active")
+    }
+  }
+}
+function showPage(page){
+  pages.map((item)=>{
+    if(item.toLocaleLowerCase() === page){
+      document.querySelector(`#${item.toLocaleLowerCase()}`).classList.remove("hide");
+      activePage = page
+    }else{
+      document.querySelector(`#${item.toLocaleLowerCase()}`).classList.add("hide");
+    }
+  })
 }
 function getFromLocalStorage(key) {
   // Check if local storage is supported by the browser
@@ -43,49 +38,23 @@ function saveToLocalStorage(key, value) {
     alert("Sorry, local storage is not supported by your browser.");
   }
 }
-//It request the html & appends it to where it needs to go 
-async function loadCompts(compt_location,html_location){
-  const url = "components/"+compt_location+".html" + '?v=' + new Date().getTime();
-  return fetch(url)
-  .then((res => res.text()))
-  .then(compt => {
-    document.querySelector("."+html_location).innerHTML = compt;
-    return "complete";
-  })
-  .catch((error) => {
-    return error;
-  })
-}
-function loadExtra(){
-    if(getFromLocalStorage("pID") == 2){
-      cardContainerFactory(education,"edu-cont");
-      cardContainerFactory(animes,"anime-cont");
-    }
-     if(getFromLocalStorage("pID") == 3){
-      cardContainerFactory(projects,"proj-cont");
-    }
-}
-async function onLoad(){
-  await loadCompts("navbar","navbar").then((res)=>{
-    /*
+function onLoad(){
     if(getFromLocalStorage("last_page") === "any"){
       switchPage("home",1);
     }else{
       switchPage(getFromLocalStorage("last_page"),getFromLocalStorage("pID"))
-    }*/
+    }
     cardContainerFactory(education,"edu-cont");
     cardContainerFactory(animes,"anime-cont");
     cardContainerFactory(projects,"proj-cont");
-    showPage("home");
     /* Imports footer */
-    loadCompts("footer","mfoo").then((res)=>{
       /*Creates Buttons for pages */
     pages.map((item,id)=>{
       let btn = document.createElement("button");
       btn.innerText = item;
       btn.className = "btn-none p-1 background foo-btn";
       btn.onclick = () => {
-        switchPage(item.toLocaleLowerCase()+".html",(id+1))
+        switchPage(item.toLocaleLowerCase(),(id+1))
       }
       document.querySelector(".foo-pages-container").append(btn);
     })
@@ -99,11 +68,6 @@ async function onLoad(){
         a.append(i);
         document.querySelector(".social-container").append(a);
       })
-    })
-  })
-  .catch((err)=>{
-    console.log(err)
-  })
 }
 const socialsIcons = [{icon: "github", href:
   "https://github.com/SaffronSan"
@@ -112,7 +76,7 @@ const socialsIcons = [{icon: "github", href:
 const education = {
   title : "Educations & Major",
   loction: "edu-cont",
-  type: "flat-grid",
+  type: "banner",
   content: [
     {
       title: "Phillip O. Berry Academy of Technology",
@@ -136,7 +100,7 @@ const education = {
 }, animes = {
   title : "Favorite Anime",
   loction: "anime-cont",
-  type: "flat-grid",
+  type: "banner",
   content: [
     {
       title: "One piece",
@@ -228,42 +192,13 @@ function cardInfo(info,type){
   if(type.includes("flat")) {md.append(des);}
  return md;
 }
-
-function showPage(page){
-  pages.map((item)=>{
-    if(item.toLocaleLowerCase() === page){
-      //console.log("Current: "+page)
-      document.querySelector(`#${item.toLocaleLowerCase()}`).classList.remove("hide");
-      activePage = page
-    }else{
-      //console.log(item.toLocaleLowerCase(), page,item.toLocaleLowerCase() === page)
-      document.querySelector(`#${item.toLocaleLowerCase()}`).classList.add("hide");
-    }
-  })
-}
-let activePage = "Home", pages = ["Home", "About", "Project", "Contact","Docs"];
-switchPage("home",1);
-
-  cardContainerFactory(education,"edu-cont");
-  cardContainerFactory(animes,"anime-cont");
-  cardContainerFactory(projects,"proj-cont");
-
-pages.map((item,id)=>{
-  let btn = document.createElement("button");
-  btn.innerText = item;
-  btn.className = "btn-none p-1 background foo-btn";
-  btn.onclick = () => {
-    switchPage(item.toLocaleLowerCase()+".html",(id+1))
-  }
-  document.querySelector(".foo-pages-container").append(btn);
-})
-/* Creates Social Media links with icons */
-socialsIcons.map((item) => {
-  let a = document.createElement("a"), i = document.createElement("i");
-  a.className = "bg-inherit";
-  a.href = item.href;
-  a.target = "blank";
-  i.className = `fa-brands fa-${item.icon}`;
-  a.append(i);
-  document.querySelector(".social-container").append(a);
+let activePage = "Home", pages = ["Home", "About", "Project", "Contact"];
+onLoad();
+document.querySelector(".bars-btn").addEventListener("click",()=>{
+  let element = document.querySelector(".links-cont");
+    if (element.style.display === 'none') {
+     element.style.display = 'block';
+    } else {
+     element.style.display = 'none';
+   }
 })

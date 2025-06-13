@@ -21,7 +21,8 @@ main{
 .container{
     display: flex;
     padding: 1rem;
-    width: 50rem;
+    width: 100%;
+    max-width: 50rem;
     align-content: center;
     margin: 0rem auto;
 }
@@ -29,7 +30,7 @@ main{
     background-color: inherit;
 }
 .container-border{
-    border-radius: 1.55rem;
+    border-radius: var(--main-border);
 }
 /*Cards*/
 .title-desc{
@@ -106,7 +107,7 @@ main{
 button{
     cursor: pointer;
 }
-/*Fonts & fonts*/
+/*Fonts*/
 .text-base{
     font-size: 1rem;
 }
@@ -144,6 +145,81 @@ i{
 i:hover{
     color: var(--blue-600);
 }
+/*header*/
+header{
+    width: 100%;
+    padding: .25rem;
+    align-items: center;
+}
+.links-cont{
+    background-color: var(--background);
+    padding: .5rem;
+}
+.setting-cont{
+    display: none;
+    background-color: var(--background);
+    padding: .25rem;
+    border-radius: 99999rem;
+}
+.links-cont > button{
+  border: none;
+  outline: none;
+  font-size: var(--text-b2);
+  padding: 0.25rem;
+  cursor: pointer;
+  background-color: inherit;
+  border-radius: var(--main-border);
+  transition: color .5s ease-in-out;
+}
+.links-cont > button:hover{
+    color: var(--blue-600);
+}
+.nav-active{
+    color: var(--blue-800);
+}
+/*Footer */
+.hero-img > img{
+  width: 100%;
+  max-width: 30dvh;
+  height: auto;
+}
+footer{
+    font-size: var(--text-b1);
+}
+.foo-main{
+    display: flex;
+    overflow-x: hidden;
+}
+.foo-main > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+h6{
+    font-size: var(--text-t1);
+    color: var(--blue-800);
+}
+.foo-btn{
+    font-size: var(--text-b1);
+}
+.fa-brands{
+    font-size: var(--text-t1);
+}
+blockquote span{
+    display: block;
+}
+.foo-pages-container{
+    display: flex;
+    flex-direction: column;
+}
+.foo-pages-container > button{
+    transition: all .5s linear;
+}
+.foo-pages-container > button:hover{
+    color: var(--blue-600);
+}
+/*Contact Page*/
 .fourm > div > input,textarea{
     border: none;
     background-color: white;
@@ -176,20 +252,50 @@ textarea{
     width: 170px;
     height: 150px;
 }
-
-
 .hide{
     opacity: 0;
     display: none;
 }
-
-.hero-img > img{
-  width: 100%;
-  max-width: 30dvh;
-  height: auto;
+.hide > *{
+    display: none !important;
 }
-
-
+/*Home Page*/
+.hero{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+.hero-container{
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    text-align: center; 
+    justify-content: center;
+    padding: 1rem;
+}   
+.hero-container > *{
+    margin: .25rem 0rem;
+}
+.hero-container > h1{
+    font-size: var(--text-t2);
+}
+.hero-container > p{
+    font-size: var(--text-b1);
+}
+.hero-img{
+    display: flex; 
+    align-content: center; 
+    margin: auto 0rem 0rem 0rem; 
+    height: 100%;
+    width: 100%;
+}
+.hero-img > img{
+    height: 100%;
+    width: 100%;
+    max-height: 30dvh;
+    max-width: 30dvw;
+}
 @media (width >= 48rem) {
     .btn-pill{
         font-size: var(--text-b2);
@@ -209,5 +315,56 @@ textarea{
     }
     .card-holder{
         width: 80rem;
+    }
+    /*Navbar */
+    .setting-cont{
+        display: inline;
+    }
+    .bars-btn{
+        display: none;
+    }
+    .links-cont > button{
+        font-size: var(--text-t2);
+        padding: var(--padding-c3);
+    }
+    .links-cont{
+        display: flex !important;
+    }
+    /*Footer */
+    h6{
+        font-size: var(--text-t2);
+    }
+    .foo-btn{
+        font-size: var(--text-b2);
+    }
+    .fa-brands{
+        font-size: var(--text-t1);
+    }
+    footer{
+        font-size: var(--text-b2);
+    }
+    blockquote span{
+        display: inline;
+    }
+    .foo-pages-container{
+        display: flex;
+        flex-direction: row;
+    }
+    /*Home Page*/
+    .hero{
+        flex-direction: row;
+        justify-content: center;
+    }
+    .hero-img > img{
+        height: 68rem;/*72 rem for lg*/
+    }
+    .hero-container{
+        padding: 2rem;
+    }
+    .hero-container > h1{
+        font-size: var(--text-t3);
+    }
+    .hero-container > p{
+        font-size: var(--text-b2);
     }
 }
