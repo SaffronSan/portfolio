@@ -1,12 +1,12 @@
 async function switchPage(page,id){
-  const url = '/pages/' + page + '?v=' + new Date().getTime();
+  const url = 'pages/' + page + '?v=' + new Date().getTime();
   await fetch(url)
   .then(res => res.text())
   .then(html =>{
     document.querySelector(".main-content").innerHTML = html;
     document.getElementById(`nav-${id}`).classList.add("nav-active");
     document.querySelector("title").innerText = page.charAt(0).toUpperCase() + page.slice(1).replace(".html",'');
-    for(let i = 1; i < 5; i++){
+    for(let i = 1; i < 6; i++){
       if(i != id){
         document.getElementById(`nav-${i}`).classList.remove("nav-active")
       }
@@ -48,7 +48,7 @@ function saveToLocalStorage(key, value) {
 }
 //It request the html & appends it to where it needs to go 
 async function loadCompts(compt_location,html_location){
-  const url = "/components/"+compt_location+".html" + '?v=' + new Date().getTime();
+  const url = "components/"+compt_location+".html" + '?v=' + new Date().getTime();
   return fetch(url)
   .then((res => res.text()))
   .then(compt => {
