@@ -2,7 +2,7 @@
     display: flex; 
     justify-content: space-between; 
     align-items: center;
-    padding: .25rem;
+    padding: 0rem;
     width: 100%;
 }
 .nav-btn-cont{
@@ -16,8 +16,8 @@
   border: none;
   background-color: white;
   outline: none;
-  font-size: var(--text-sm);
-  padding: .35rem;
+  font-size: var(--text-t1);
+  padding: 0rem;
   margin-left: .25rem;
   cursor: pointer;
   border-radius: 2rem;
@@ -34,8 +34,8 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 8rem;
-    padding: .5rem;
+    width: 4rem;
+    padding: .25rem;
     margin: .5rem;
     overflow: hidden;
 }
@@ -45,5 +45,17 @@
     background-color: white;
 }
 .setting > button > i{
-    font-size: 2rem;
+    font-size: var(--text-b2);
+}
+@media (width >= 48rem)  {
+  .nav-btn-cont > button{
+    font-size: var(--text-t2);
+    }
+    .setting{
+        width: 6rem;
+        padding: .5rem;
+    }
+    .setting > button > i{
+        font-size: var(--text-t2);
+    }
 }

@@ -1,4 +1,4 @@
-async function switchPage(page,id){
+async function pageLoad(page,id){
   const url = 'pages/' + page + '?v=' + new Date().getTime();
   await fetch(url)
   .then(res => res.text())
@@ -15,17 +15,13 @@ async function switchPage(page,id){
     saveToLocalStorage("pID",id);
     return "Finished"
   })
-  .then((res)=>{
-    // Loads the extra content in each page; use switch
-    if(id == 2){
-      cardContainerFactory(education,"edu-cont");
-      cardContainerFactory(animes,"anime-cont")
-    }
-    //console.log(document.querySelector(".container-cards"),res,id);
-    return "Loaded Extra ";
-  })
   .catch((err)=>{
     return err
+  })
+}
+function switchPage(page,id){
+  pageLoad(page,id).then(()=>{
+    loadExtra();
   })
 }
 function getFromLocalStorage(key) {
@@ -59,21 +55,30 @@ async function loadCompts(compt_location,html_location){
     return error;
   })
 }
-
+function loadExtra(){
+    if(getFromLocalStorage("pID") == 2){
+      cardContainerFactory(education,"edu-cont");
+      cardContainerFactory(animes,"anime-cont");
+    }
+     if(getFromLocalStorage("pID") == 3){
+      cardContainerFactory(projects,"proj-cont");
+    }
+}
 async function onLoad(){
   await loadCompts("navbar","navbar").then((res)=>{
-    if(getFromLocalStorage("last_page") === "home.html"){
+    if(getFromLocalStorage("last_page") === "any"){
       switchPage("home.html",1);
     }else{
-      switchPage(getFromLocalStorage("last_page"),getFromLocalStorage("pID"));
+      switchPage(getFromLocalStorage("last_page"),getFromLocalStorage("pID"))
+
     }
     /* Imports footer */
     loadCompts("footer","mfoo").then((res)=>{
       /*Creates Buttons for pages */
-    ["Home", "About", "Contact", "Project","Docs"].map((item,id)=>{
+    ["Home", "About", "Project", "Contact","Docs"].map((item,id)=>{
       let btn = document.createElement("button");
       btn.innerText = item;
-      btn.className = "btn-none p-1 background text-xs";
+      btn.className = "btn-none p-1 background foo-btn";
       btn.onclick = () => {
         switchPage(item.toLocaleLowerCase()+".html",(id+1))
       }
@@ -85,14 +90,14 @@ async function onLoad(){
         a.className = "bg-inherit";
         a.href = item.href;
         a.target = "blank";
-        i.className = `fa-brands fa-${item.icon} text-sm`;
+        i.className = `fa-brands fa-${item.icon}`;
         a.append(i);
         document.querySelector(".social-container").append(a);
       })
     })
   })
   .catch((err)=>{
-    alert(err)
+    console.log(err)
   })
 }
 const socialsIcons = [{icon: "github", href:
@@ -102,7 +107,7 @@ const socialsIcons = [{icon: "github", href:
 const education = {
   title : "Educations & Major",
   loction: "edu-cont",
-  type: "flat",
+  type: "banner",
   content: [
     {
       title: "Phillip O. Berry Academy of Technology",
@@ -152,7 +157,38 @@ const education = {
       buttonTxt: "Learn more",
       des : "dhflsdjfljfdsjjlfj aj sdjak dajs djalkdj jlkdjaklsd jal dklsaj djald lkajdpkje123i -03012 dsd"
     }]
+}, projects = {
+  title : "Projects Showcase",
+  location : "proj-cont",
+  type : "flat-grid",
+  content: [
+    {
+      title : "First project",
+      src : "img/Projects/msfw-proj.png",
+      buttonTxt: "Visit Site",
+      des: "First website I've ever made."
+    },
+    {
+      title : "Tele Search",
+      src : "img/Projects/tele-proj.png",
+      buttonTxt: "Visit Site",
+      des: "A website where you can find basic info one tv shows."
+    },
+    {
+      title : "Road to Hire - High School project",
+      src : "img/Projects/r2h-proj.png",
+      buttonTxt: "Visit Site",
+      des: "A website created for road to hire high school project."
+    },
+    {
+      title : "V-Tac",
+      src : "img/Projects/vTac-proj.png",
+      buttonTxt: "Visit Site",
+      des: "A website using Vue.js, lets you play tic-tac-toe; modes: 1v1 & bots."
+    }
+]
 }
+//Creates Many Cards & a Title 
 function cardContainerFactory(data,location){
   let card_container = document.createElement("section"), card_container_title = document.createElement("h3");
   card_container.className = data.type;
@@ -160,20 +196,19 @@ function cardContainerFactory(data,location){
   card_container_title.className ="background shadow-md p-2 container-border my-1 font-title size-fit text-sm primary"
   card_container_title.innerText = data.title;
   data.content.map((item => {
-    card_container.append(cardInfo(item));
+    card_container.append(cardInfo(item,data.type));
   }))
-  console.log(location);
   document.querySelector(`#${location}`).append(card_container_title);
   document.querySelector(`#${location}`).append(card_container);
 }
-
+// Create A Single Card
 function cardInfo(info,type){
   let md = document.createElement("div"),
       h = document.createElement("h3"),
       img = document.createElement("img"),
       btn = document.createElement("button"),
       des = document.createElement("p");
-  md.className = "card container-border background shadow-md p-2 space-y-1 flex-cols";
+  md.className = "card container-border background shadow-md p-2 space-y-1 flex-cols align-center w-fit";
   h.className = "text-title font-title accent";
   h.innerText = info.title;
   img.src = info.src;
@@ -181,9 +216,11 @@ function cardInfo(info,type){
   btn.className = "btn-pill border-full p-1 font-body shadow-md";
   btn.innerText = info.buttonTxt;
   des.innerText = info.des;
+  des.className = "font-body "
   md.append(h);
-  //md.append(btn);
+  if(type.includes("flat")) {md.append(btn);}
   md.append(img);
+  if(type.includes("flat")) {md.append(des);}
  return md;
 }
 
