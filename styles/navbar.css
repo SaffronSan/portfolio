@@ -3,13 +3,11 @@
     justify-content: space-between; 
     align-items: center;
     padding: 0rem;
-    width: 100%;
 }
 .nav-btn-cont{
     padding: 1rem 1.5rem;
-    display: sticky;
-    justify-content: even;
-    width: fit-content;
+    display: flex;
+    justify-content: space-around;
     margin: .5rem auto;
 }
 .nav-btn-cont > button{
@@ -22,7 +20,7 @@
   cursor: pointer;
   border-radius: 2rem;
   transition: color .25s ease-in-out;
-  font-weight: 500;
+  font-weight: 400;
 }
 .nav-btn-cont > button:hover{
     color: var(--blue-600);
@@ -34,25 +32,28 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 4rem;
+    width: 5vh;
     padding: .25rem;
     margin: .5rem;
-    overflow: hidden;
 }
 .setting > button{
-    padding: .5rem;
+    padding: 0rem;
     border: none;
     background-color: white;
 }
 .setting > button > i{
     font-size: var(--text-b2);
+    border-radius: 99999rem;
 }
 @media (width >= 48rem)  {
+    .nav-btn-cont{
+        width: 40vh;
+    }
   .nav-btn-cont > button{
     font-size: var(--text-t2);
     }
     .setting{
-        width: 6rem;
+        width: 8vh;
         padding: .5rem;
     }
     .setting > button > i{

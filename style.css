@@ -1,21 +1,16 @@
 *{
-    margin: 0%;
-    padding: 0%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     background-color: var(--zinc-100);
     font-size: var(--text-base);
-     transition: all .75s ease-in;
+    transition: all .75s ease-in;
+    font-weight: var(--bold-lvl-1);
 }
 body{
-    display: flex;
-    flex-direction: column; 
-    min-height: 100vh; 
-}
-main{
-    flex-grow: 1;
-}
-.main-content{
-    height: 100%;
+    min-height: 100vh;
     width: 100%;
+
 }
 /*Main Containers */
 .container{
@@ -64,8 +59,8 @@ main{
     grid-template-rows: 1fr;
     justify-items: center;
     position: relative;
-    overflow: auto;
     align-items: center;
+    overflow: scroll;
 }
 .flat{
     position: relative;

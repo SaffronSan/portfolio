@@ -191,9 +191,9 @@ const education = {
 //Creates Many Cards & a Title 
 function cardContainerFactory(data,location){
   let card_container = document.createElement("section"), card_container_title = document.createElement("h3");
-  card_container.className = data.type;
+  card_container.className = data.type + " space-y-1 ";
   card_container.id = "inside-"+location;
-  card_container_title.className ="background shadow-md p-2 container-border font-title text-sm primary w-fit"
+  card_container_title.className ="background shadow-md p-2 container-border font-title  primary w-fit text-title-1"
   card_container_title.innerText = data.title;
   data.content.map((item => {
     card_container.append(cardInfo(item,data.type));
