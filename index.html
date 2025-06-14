@@ -15,17 +15,22 @@
     <body>
         <header class="navbar flex justify-between">
             <img class=" size-8 space-y-1" src="img/logo-6.png" alt=""/>
-            <div class="links-cont font-title space-x-1 bg-inherit background container-border">
-                <button class="" id="nav-1" onClick="switchPage('home',1)">Home</button>
-                <button id="nav-2" onClick="switchPage('about',2)">About</button>
-                <button id="nav-3" onClick="switchPage('project',3)">Projects</button>
-                <button id="nav-4" onClick="switchPage('contact',4)">Contact</button>
+            <div class="links-cont-parent">
+                <div class="links-cont font-title space-x-1 bg-inherit background container-border">
+                    <button class="" id="nav-1" onClick="switchPage('home',1)">Home</button>
+                    <button id="nav-2" onClick="switchPage('about',2)">About</button>
+                    <button id="nav-3" onClick="switchPage('project',3)">Projects</button>
+                    <button id="nav-4" onClick="switchPage('contact',4)">Contact</button>
+                </div>
+                <button id="mobile" class="btn-none shadow-md setting-cont">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                </button>
             </div>
+            <button id="desktop" class="btn-none shadow-md setting-cont">
+                <i class="fa-solid fa-circle-half-stroke"></i>
+            </button>
             <button class="btn-none background shadow-md p-1 container-border bars-btn">
                 <i class="fa-solid fa-bars"></i>
-            </button>
-            <button class="btn-none shadow-md setting-cont">
-               <i class="fa-solid fa-circle-half-stroke"></i>
             </button>
         </header>
         <main class="main-content">
@@ -36,7 +41,7 @@
                 <p class="font-body bg-inherit">
                     Your next Web Developer
                 </p>
-                <button onClick="switchPage('about.html',2)" class="border-full shadow-md p-1 font-body btn-pill mx-auto">
+                <button onClick="switchPage('about',2)" class="border-full shadow-md p-1 font-body btn-pill mx-auto">
                     More Info 
                 </button>
             </div>
@@ -46,10 +51,10 @@
         </section>
 
         <section id="about">
-            <div class="flex-cols flex justify-center">
-                <h1 class="background shadow-md container container-border my-1 font-title size-fit text-md primary">
+            <div class="flex-cols flex align-center">
+                <h2 class="background shadow-md container container-border my-1 font-title size-fit text-md primary">
                     Anish Thapa
-                </h1>
+                </h2>
                 <p class="text-mainbody font-body mt-1 background shadow-md  container-border p-2 title-desc"> 
                     I am a rising Junior, who is studying to become a future software developer!
                 </p>
@@ -62,11 +67,11 @@
         
         <section id="contact">
             <div class="flex-cols mx-auto align-center space-y-1">
-                <h2 class="shadow-md size-fit p-2 background container-border font-title text-md">Contact Page</h2>
-                <p class="shadow-md size-fit p-2 background container-border font-body">
+                <h2 class="shadow-md size-fit p-1 background container-border font-title text-md">Contact Page</h2>
+                <p class="shadow-md size-fit p-1 background container-border font-body">
                     This is the contact page where, you could submit a message to me. 
             </p>
-                <div class="fourm flex-cols space-y-1 p-2">
+                <div class="fourm flex-cols space-y-1 p-1">
                 <div>
                     <label name="fake">Your Name</label>
                     <input placeholder="Username" type="text" name="fake" id=""/>
@@ -85,6 +90,7 @@
         </section>
 
         <section id="project">
+            
             <div class="mx-auto card-holder">
                 <div id="proj-cont"></div>
             </div>

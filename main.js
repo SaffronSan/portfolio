@@ -1,4 +1,5 @@
 
+//Updates the local storages & nav buttons
 function switchPage(page,id){
   showPage(page);
   saveToLocalStorage("last_page",page);
@@ -10,6 +11,7 @@ function switchPage(page,id){
     }
   }
 }
+//Switchs pages by hiding non-active page
 function showPage(page){
   pages.map((item)=>{
     if(item.toLocaleLowerCase() === page){
@@ -79,7 +81,7 @@ const education = {
   type: "banner",
   content: [
     {
-      title: "Phillip O. Berry Academy of Technology",
+      title: "Phillip O Berry Academy",
       src: "https://upload.wikimedia.org/wikipedia/commons/1/17/Pob_cardinal.gif",
       buttonTxt: "Learn more",
       des : "dhflsdjfljfdsjjlfj aj sdjak dajs djalkdj jlkdjaklsd jal dklsaj djald lkajdpkje123i -03012 dsd"
@@ -160,13 +162,13 @@ const education = {
 //Creates Many Cards & a Title 
 function cardContainerFactory(data,location){
   let card_container = document.createElement("section"), card_container_title = document.createElement("h3");
-  card_container.className = data.type + " space-y-1 ";
-  card_container.id = "inside-"+location;
-  card_container_title.className ="background shadow-md p-2 container-border font-title  primary w-fit text-title-1"
+  card_container.className = data.type ;
+  card_container_title.className ="background shadow-md container-border font-title  w-fit"
   card_container_title.innerText = data.title;
   data.content.map((item => {
     card_container.append(cardInfo(item,data.type));
   }))
+  document.querySelector(`#${location}`).className = "card-cont space-y-1";
   document.querySelector(`#${location}`).append(card_container_title);
   document.querySelector(`#${location}`).append(card_container);
 }
@@ -177,28 +179,28 @@ function cardInfo(info,type){
       img = document.createElement("img"),
       btn = document.createElement("button"),
       des = document.createElement("p");
-  md.className = "card space-y-1";
-  h.className = "text-title font-title background container-border shadow-md p-1";
+  md.className = "card";
+  h.className = "text-title font-title";
   h.innerText = info.title;
   img.src = info.src;
-  img.className = "container-border background shadow-md";
+  img.className = "container-border";
   btn.className = "btn-pill border-full p-1 font-body shadow-md";
   btn.innerText = info.buttonTxt;
   des.innerText = info.des;
   des.className = "font-body "
-  md.append(h);
-  if(type.includes("flat")) {md.append(btn);}
   md.append(img);
+  if(type.includes("flat")) {md.append(btn);}
+  md.append(h);
   if(type.includes("flat")) {md.append(des);}
  return md;
 }
 let activePage = "Home", pages = ["Home", "About", "Project", "Contact"];
 onLoad();
 document.querySelector(".bars-btn").addEventListener("click",()=>{
-  let element = document.querySelector(".links-cont");
-    if (element.style.display === 'none') {
-     element.style.display = 'block';
-    } else {
-     element.style.display = 'none';
-   }
+  let element = document.querySelector(".links-cont-parent");
+  if (element.style.display === 'none') {
+    element.style.display = 'flex';
+  } else {
+    element.style.display = 'none';
+  }
 })

@@ -191,6 +191,9 @@
 .space-y-1 > :not(:last-child){
     margin-block-end: .5rem;
 }
+.space-y-5 > :not(:last-child){
+    margin-block-end: 2.25rem;
+}
 .space-x-1 > :not(:last-child){
     margin-inline-end: .5rem;
 }

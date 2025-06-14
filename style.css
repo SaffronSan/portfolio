@@ -3,9 +3,11 @@
     padding: 0;
     box-sizing: border-box;
     background-color: var(--zinc-100);
-    font-size: var(--text-base);
+    font-size: var(--text-b1);
     font-weight: var(--bold-lvl-1);
+    transition: all .5s linear;
 }
+
 html{
     display: block;
 }
@@ -41,26 +43,49 @@ main{
 .card-holder{
     display: flex;
     flex-direction: column;
+    text-align: center;
     width: 100%;
+    overflow: hidden;
+}
+.card-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--padding-c1);
+}
+.card-cont > h3{
+    padding: var(--padding-c1);
+    font-size: var(--text-t1);
 }
 .card{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    /*height: 35rem;*/
+    justify-content: space-around;
+    background-color: var(--background);
+    border-radius: var(--main-border);
     padding: var(--padding-c1);
     text-align: center;
     align-items: center;
-    width: 100%;
-    max-width: 30vh;
-    margin: .25rem 1.5rem;
+    width: 25dvh;
+    height: 25dvh;
+    margin: 0.25rem 0rem;
 }
 .card > button{
     background-color: var(--blue-600);
 }
 .card > img{
+    object-fit: cover;
+    width: 20dvh;
+    height: 20dvh;
+    border-radius: var(--main-border);
+    box-shadow: var(--shadow-sm);
+}
+.card > h3{
+    padding: 0.25rem;
     width: 100%;
-    height: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .banner{
     display: grid;
@@ -69,26 +94,15 @@ main{
     justify-items: center;
     position: relative;
     align-items: center;
-    overflow: scroll;
+
 }
 .flat-grid{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     justify-items: center;
-    grid-column-gap: 0px;
+    grid-column-gap: 0rem;
     grid-row-gap: 0px;
-}
-.cards-controls{
-    display: flex;
-    justify-content: space-between;
-    width: 4.75rem;
-    margin: 0rem 0rem 0rem auto;
-}
-.cards-controls > button{
-    border: none;
-    outline: none;
-    background-color: white;
 }
 /*Buttons*/
 .btn-pill{
@@ -153,13 +167,19 @@ header{
 }
 .links-cont{
     background-color: var(--background);
-    padding: .5rem;
+    padding: var(--padding-c1);
 }
 .setting-cont{
-    display: none;
     background-color: var(--background);
     padding: .25rem;
     border-radius: 99999rem;
+}
+.links-cont-parent{
+    display: flex;
+    align-items: center;
+}
+.links-cont-parent > *{
+    margin: 0rem .1rem;
 }
 .links-cont > button{
   border: none;
@@ -170,12 +190,16 @@ header{
   background-color: inherit;
   border-radius: var(--main-border);
   transition: color .5s ease-in-out;
+  color: black;
 }
 .links-cont > button:hover{
     color: var(--blue-600);
 }
 .nav-active{
     color: var(--blue-800);
+}
+#desktop{
+    display: none;
 }
 /*Footer */
 .hero-img > img{
@@ -297,38 +321,46 @@ textarea{
     max-width: 30dvw;
 }
 @media (width >= 48rem) {
+    *{
+        font-size: var(--text-b2);
+    }
     .btn-pill{
         font-size: var(--text-b2);
     }
     .flat-grid{
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
+        gap: 1rem;
+    }
+    .card{
+        width: 40dvh;
+        height: 40dvh;
+    }
+    .card > img{
+        width: 30dvh;
+        height: 30dvh;
     }
     .banner{
-        width: 70vh;
-        margin: .5rem auto;
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
-    }
-    .card-holder{
-        width: 80rem;
+        gap: 1rem;
     }
     /*Navbar */
-    .setting-cont{
-        display: inline;
-    }
     .bars-btn{
         display: none;
     }
     .links-cont > button{
-        font-size: var(--text-t2);
+        font-size: var(--text-t1);
         padding: var(--padding-c3);
     }
-    .links-cont{
+    .links-cont-parent{
         display: flex !important;
+    }
+    #mobile{
+        display: none;
+    }
+    #desktop{
+        display: inline;
     }
     /*Footer */
     h6{
