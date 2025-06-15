@@ -40,11 +40,24 @@ function saveToLocalStorage(key, value) {
     alert("Sorry, local storage is not supported by your browser.");
   }
 }
+function toggleTheme(){
+  document.body.classList.toggle("dark-mode");
+  if(document.body.classList.contains("dark-mode")){
+    saveToLocalStorage("theme","dark");
+  }else{
+    saveToLocalStorage("theme","light")
+  }
+}
 function onLoad(){
-    if(getFromLocalStorage("last_page") === "any"){
+    if(getFromLocalStorage("last_page") === null){
       switchPage("home",1);
     }else{
       switchPage(getFromLocalStorage("last_page"),getFromLocalStorage("pID"))
+    }
+    if(getFromLocalStorage("theme") == undefined || getFromLocalStorage("theme") == "light"){
+      saveToLocalStorage("theme","light")
+    }else{
+      toggleTheme();
     }
     cardContainerFactory(education,"edu-cont");
     cardContainerFactory(animes,"anime-cont");
@@ -70,6 +83,29 @@ function onLoad(){
         a.append(i);
         document.querySelector(".social-container").append(a);
       })
+    document.querySelector(".bars-btn").addEventListener("click",()=>{
+      let element = document.querySelector(".links-cont-parent");
+      if (element.style.display === 'none') {
+        element.style.display = 'flex';
+      } else {
+        element.style.display = 'none';
+      }
+    });
+    document.querySelectorAll(".setting-cont").forEach((item)=>{
+      console.log(item.children[0].classList.contains("fa-moon"))
+      item.addEventListener("click",()=>{
+        if(item.children[0].classList.contains("fa-moon")){
+          item.children[0].classList.remove("fa-moon");
+          item.children[0].classList.add("fa-sun");
+        }else{
+          item.children[0].classList.remove("fa-sun");
+          item.children[0].classList.add("fa-moon");
+        }
+        toggleTheme();
+      })
+    })
+
+document.querySelector
 }
 const socialsIcons = [{icon: "github", href:
   "https://github.com/SaffronSan"
@@ -180,11 +216,11 @@ function cardInfo(info,type){
       btn = document.createElement("button"),
       des = document.createElement("p");
   md.className = "card";
-  h.className = "text-title font-title";
+  h.className = "text-title-1 font-title";
   h.innerText = info.title;
   img.src = info.src;
   img.className = "container-border";
-  btn.className = "btn-pill border-full p-1 font-body shadow-md";
+  btn.className = "btn-pill border-full p-1 font-body shadow-md my-1";
   btn.innerText = info.buttonTxt;
   des.innerText = info.des;
   des.className = "font-body "
@@ -196,11 +232,3 @@ function cardInfo(info,type){
 }
 let activePage = "Home", pages = ["Home", "About", "Project", "Contact"];
 onLoad();
-document.querySelector(".bars-btn").addEventListener("click",()=>{
-  let element = document.querySelector(".links-cont-parent");
-  if (element.style.display === 'none') {
-    element.style.display = 'flex';
-  } else {
-    element.style.display = 'none';
-  }
-})
