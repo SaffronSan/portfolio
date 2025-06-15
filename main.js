@@ -213,7 +213,7 @@ function cardInfo(info,type){
   let md = document.createElement("div"),
       h = document.createElement("h3"),
       img = document.createElement("img"),
-      btn = document.createElement("button"),
+      btn = document.createElement("a"),
       des = document.createElement("p");
   md.className = "card";
   h.className = "text-title-1 font-title";
@@ -223,7 +223,7 @@ function cardInfo(info,type){
   btn.className = "btn-pill border-full p-1 font-body shadow-md my-1";
   btn.innerText = info.buttonTxt;
   des.innerText = info.des;
-  des.className = "font-body "
+  des.className = "font-body"
   md.append(img);
   if(type.includes("flat")) {md.append(btn);}
   md.append(h);

@@ -35,18 +35,21 @@
         </header>
         <main class="main-content">
         
-        <section id="home" class="hero">
-            <div class="hero-container background shadow-md container-border p-2 size-fit">
+        <section id="home" class="hero space-y-1">
+            <div class="hero-container background shadow-md container-border p-2 space-y-1">
                 <h1 class="font-title bg-inherit primary">Anish Thapa </h1>
                 <p class="font-body bg-inherit">
-                    Your next Web Developer
+                    Your next Software Developer
                 </p>
+                <div class="hero-img">
+                    <img class="container-border shadow-md" src="img/profile-pic.jpg" alt="background" srcset=""/>
+                </div>
                 <button onClick="switchPage('about',2)" class="border-full shadow-md p-1 font-body btn-pill mx-auto">
                     More Info 
                 </button>
             </div>
-            <div class="hero-img">
-                <img src="img/Stock_Guy.png" alt="background" srcset=""/>
+            <div class="background shadow-md font-title p-1 container-border mb-1">
+                <h3>Road to hire Intern</h3>
             </div>
         </section>
 
@@ -55,6 +58,9 @@
                 <h2 class="background shadow-md container container-border my-1 font-title size-fit text-md primary">
                     Anish Thapa
                 </h2>
+                <div class="hero-pic">
+                    <img src="img/profile-pic.jpg" alt="profile-pic">
+                </div>
                 <p class="text-mainbody font-body mt-1 background shadow-md  container-border p-2 title-desc"> 
                     I am a rising Junior, who is studying to become a future software developer!
                 </p>
@@ -67,7 +73,7 @@
         
         <section id="contact">
             <div class="flex-cols mx-auto align-center space-y-1">
-                <h2 class="shadow-md size-fit p-1 background container-border font-title text-md">Contact Page</h2>
+                <h2 class="shadow-md size-fit p-1 background container-border font-title text-md primary">Contact Page</h2>
                 <p class="shadow-md size-fit p-1 background container-border font-body">
                     This is the contact page where, you could submit a message to me. 
             </p>
@@ -90,9 +96,17 @@
         </section>
 
         <section id="project">
-            
-            <div class="mx-auto card-holder">
-                <div id="proj-cont"></div>
+            <div class="flex-cols mx-auto align-center ">
+                <h2 class="shadow-md size-fit p-1 background container-border font-title text-md primary">Project Page</h2>
+                <div class="shadow-md background font-body w-fit p-1 container-border mx-auto text-xs text-center">
+                    <p>
+                        I have finished some projects, in the past, heres some of them that are public in github.
+                        <br> Its sorted from earilers to lastests.
+                    </p>
+                </div>
+                <div class="mx-auto card-holder">
+                    <div id="proj-cont"></div>
+                </div>
             </div>
         </section>
 
@@ -102,7 +116,7 @@
 
         </main>
         <footer class="mfoo font-body"> 
-            <section class="foo-main background justify-even">
+            <section class="foo-main background">
                 <div class="">
                     <h6>Anish Thapa</h6>
                     <img class="bg-inherit size-4" src="img/logo-6.png" alt="">

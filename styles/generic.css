@@ -66,6 +66,9 @@
 .text-italic{
     font-style: italic;
 }
+.text-center{
+    text-align: center;
+}
 /*Width & Height*/
 .w-fit{
     width: fit-content;

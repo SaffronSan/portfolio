@@ -72,7 +72,7 @@ main{
     text-align: center;
     align-items: center;
     width: 20rem;
-    height: 20rem;
+    height: 25rem;
     margin: 0.25rem 0rem;
 }
 .card > button{
@@ -80,8 +80,8 @@ main{
 }
 .card > img{
     object-fit: cover;
-    width: 15rem;
-    height: 15rem;
+    width: 18rem;
+    height: 20rem;
     border-radius: var(--main-border);
     box-shadow: var(--shadow-sm);
 }
@@ -117,10 +117,11 @@ main{
     padding: 1.25rem;
     margin: 0rem auto;
     font-size: var(--text-b1);
-    background-color: var(--blue-600);
+    background-color: var(--blue-600) !important;
+    transition: all .25s ease-in-out;
 }
 .btn-pill:hover{
-    background-color: var(--blue-700);
+    background-color: var(--blue-700) !important;
     cursor: pointer;
 }
 button{
@@ -166,15 +167,15 @@ header{
     align-items: center;
     position: relative;
 }
-.links-cont{
-    background-color: var(--background);
-}
 .setting-cont{
     background-color: var(--background);
     border-radius: 99999rem;
 }
 .links-cont-parent{
     display: flex;
+}
+.links-cont-parent > div:not(:last-child){
+    margin: 0rem .15rem;
 }
 .links-cont > button{
   border: none;
@@ -208,6 +209,7 @@ footer{
 .foo-main{
     display: flex;
     overflow-x: hidden;
+    justify-content: space-around
 }
 .foo-main > div{
     display: flex;
@@ -308,10 +310,18 @@ textarea{
     margin: auto 0rem 0rem 0rem; 
 }
 .hero-img > img{
+    object-fit: cover;
     height: 100%;
     width: 100%;
     max-height: 30rem;
     max-width: 30rem;
+}
+.hero-pic > img{
+    object-fit: cover;
+    border-radius: var(--main-border);
+    width: 25rem;
+    height: 25rem;
+    box-shadow: var(--shadow-sm);
 }
 @media (width >= 48rem) {
     body{
@@ -326,12 +336,12 @@ textarea{
         gap: 1rem;
     }
     .card{
-        width: 30rem;
+        width: 25rem;
         height: 30rem;
     }
     .card > img{
         width: 20rem;
-        height: 20rem;
+        height: 25rem;
     }
     .banner{
         grid-template-columns: repeat(2, 1fr);
@@ -381,12 +391,11 @@ textarea{
     }
     /*Home Page*/
     .hero{
-        flex-direction: row;
-        justify-content: center;
+       
     }
     .hero-img > img{
-        height: 72rem;/*72 rem for lg*/
-        width: 100%;
+        height: 80rem;
+        width: 80rem;
     }
     .hero-container{
         padding: 2rem;
