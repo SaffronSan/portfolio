@@ -1,4 +1,3 @@
-
 //Updates the local storages & nav buttons
 function switchPage(page,id){
   showPage(page);
@@ -16,7 +15,7 @@ function showPage(page){
   pages.map((item)=>{
     if(item.toLocaleLowerCase() === page){
       document.querySelector(`#${item.toLocaleLowerCase()}`).classList.remove("hide");
-      activePage = page
+      activePage = page;
     }else{
       document.querySelector(`#${item.toLocaleLowerCase()}`).classList.add("hide");
     }
@@ -59,11 +58,23 @@ function onLoad(){
     }else{
       toggleTheme();
     }
-    cardContainerFactory(education,"edu-cont");
-    cardContainerFactory(animes,"anime-cont");
-    cardContainerFactory(projects,"proj-cont");
-    /* Imports footer */
-      /*Creates Buttons for pages */
+    if(getFromLocalStorage("cards-data") == undefined){
+      fetch("data/cards-data.json")
+      .then((res)=> res.json())
+      .then((data) => {
+        const content = data;
+        saveToLocalStorage("cards-data",JSON.stringify(content));
+        content.content.map((item) => cardContainerFactory(item,item.location));
+      })
+    }else{  
+      JSON.parse(getFromLocalStorage("cards-data")).content.forEach((item)=>{
+        cardContainerFactory(item,item.location)
+      })
+    }
+    //cardContainerFactory(education,"edu-cont");
+    //cardContainerFactory(animes,"anime-cont");
+    //cardContainerFactory(projects,"proj-cont");
+    /*Creates Buttons for pages */
     pages.map((item,id)=>{
       let btn = document.createElement("button");
       btn.innerText = item;
@@ -73,16 +84,16 @@ function onLoad(){
       }
       document.querySelector(".foo-pages-container").append(btn);
     })
-      /* Creates Social Media links with icons */
-      socialsIcons.map((item) => {
-        let a = document.createElement("a"), i = document.createElement("i");
-        a.className = "bg-inherit";
-        a.href = item.href;
-        a.target = "blank";
-        i.className = `fa-brands fa-${item.icon}`;
-        a.append(i);
-        document.querySelector(".social-container").append(a);
-      })
+    /* Creates Social Media links with icons */
+    socialsIcons.map((item) => {
+      let a = document.createElement("a"), i = document.createElement("i");
+      a.className = "bg-inherit";
+      a.href = item.href;
+      a.target = "blank";
+      i.className = `fa-brands fa-${item.icon}`;
+      a.append(i);
+      document.querySelector(".social-container").append(a);
+    })
     document.querySelector(".bars-btn").addEventListener("click",()=>{
       let element = document.querySelector(".links-cont-parent");
       if (element.style.display === 'none') {
@@ -110,90 +121,6 @@ const socialsIcons = [{icon: "github", href:
   "https://github.com/SaffronSan"
 },{icon:"linkedin", href: ""}, {icon: "instagram",href:""}];
 
-const education = {
-  title : "Educations & Major",
-  loction: "edu-cont",
-  type: "banner",
-  content: [
-    {
-      title: "Phillip O Berry Academy",
-      src: "https://upload.wikimedia.org/wikipedia/commons/1/17/Pob_cardinal.gif",
-      buttonTxt: "Learn more",
-      des : "dhflsdjfljfdsjjlfj aj sdjak dajs djalkdj jlkdjaklsd jal dklsaj djald lkajdpkje123i -03012 dsd"
-    },
-    {
-      title: "Unversity of North Carolina at Charlotte",
-      src: "https://crva.imgix.net/UNCC-campus.jpeg?auto=compress%2Cformat&fit=crop&fm=webp&ixlib=php-3.1.0&q=80&v=1599589356&w=1000",
-      buttonTxt: "Learn more",
-      des : "dhflsdjfljfdsjjlfj aj sdjak dajs djalkdj jlkdjaklsd jal dklsaj djald lkajdpkje123i -03012 dsd"
-    },
-    {
-      title: "Computer Science",
-      src: "img/cs-wordArt.png",
-      buttonTxt: "Learn more",
-      des : "dhflsdjfljfdsjjlfj aj sdjak dajs djalkdj jlkdjaklsd jal dklsaj djald lkajdpkje123i -03012 dsd"
-    }
-  ]
-}, animes = {
-  title : "Favorite Anime",
-  loction: "anime-cont",
-  type: "banner",
-  content: [
-    {
-      title: "One piece",
-      src: "img/Anime/one_piece.jpg",
-      buttonTxt: "Learn more",
-      des : "dhflsdjfljfdsjjlfj aj sdjak dajs djalkdj jlkdjaklsd jal dklsaj djald lkajdpkje123i -03012 dsd"
-    },
-      {
-      title: "Naruto",
-      src: "img/Anime/Naruto.jpeg",
-      buttonTxt: "Learn more",
-      des : "dhflsdjfljfdsjjlfj aj sdjak dajs djalkdj jlkdjaklsd jal dklsaj djald lkajdpkje123i -03012 dsd"
-    },
-      {
-      title: "Death Note",
-      src: "img/Anime/Death_Note.jpg",
-      buttonTxt: "Learn more",
-      des : "dhflsdjfljfdsjjlfj aj sdjak dajs djalkdj jlkdjaklsd jal dklsaj djald lkajdpkje123i -03012 dsd"
-    },
-      {
-      title: "Berserk",
-      src: "img/Anime/Berserk.jpeg",
-      buttonTxt: "Learn more",
-      des : "dhflsdjfljfdsjjlfj aj sdjak dajs djalkdj jlkdjaklsd jal dklsaj djald lkajdpkje123i -03012 dsd"
-    }]
-}, projects = {
-  title : "Projects Showcase",
-  location : "proj-cont",
-  type : "flat-grid",
-  content: [
-    {
-      title : "First project",
-      src : "img/Projects/msfw-proj.png",
-      buttonTxt: "Visit Site",
-      des: "First website I've ever made."
-    },
-    {
-      title : "Tele Search",
-      src : "img/Projects/tele-proj.png",
-      buttonTxt: "Visit Site",
-      des: "A website where you can find basic info one tv shows."
-    },
-    {
-      title : "Road to Hire - High School project",
-      src : "img/Projects/r2h-proj.png",
-      buttonTxt: "Visit Site",
-      des: "A website created for road to hire high school project."
-    },
-    {
-      title : "V-Tac",
-      src : "img/Projects/vTac-proj.png",
-      buttonTxt: "Visit Site",
-      des: "A website using Vue.js, lets you play tic-tac-toe; modes: 1v1 & bots."
-    }
-]
-}
 //Creates Many Cards & a Title 
 function cardContainerFactory(data,location){
   let card_container = document.createElement("section"), card_container_title = document.createElement("h3");
@@ -207,7 +134,7 @@ function cardContainerFactory(data,location){
   document.querySelector(`#${location}`).append(card_container_title);
   document.querySelector(`#${location}`).append(card_container);
 }
-// Create A Single Card
+// Creates A Single Card
 function cardInfo(info,type){
   let md = document.createElement("div"),
       h = document.createElement("h3"),
@@ -221,6 +148,8 @@ function cardInfo(info,type){
   img.className = "container-border";
   btn.className = "btn-pill border-full p-1 font-body shadow-md my-1";
   btn.innerText = info.buttonTxt;
+  btn.target = "blank";
+  btn.href = info.link
   des.innerText = info.des;
   des.className = "font-body"
   md.append(img);

@@ -1,0 +1,92 @@
+{
+    "content" : [
+        {
+            "title" : "Favorite Anime",
+            "location": "anime-cont",
+            "type": "banner",
+            "content": [
+                {
+                "title": "One piece",
+                "src": "img/Anime/one_piece.jpg",
+                "buttonTxt": "Learn more",
+                "des" : "dhflsdjfljfdsjjlfj aj sdjak dajs djalkdj jlkdjaklsd jal dklsaj djald lkajdpkje123i -03012 dsd"
+                },
+                {
+                "title": "Naruto",
+                "src": "img/Anime/Naruto.jpeg",
+                "buttonTxt": "Learn more",
+                "des" : "dhflsdjfljfdsjjlfj aj sdjak dajs djalkdj jlkdjaklsd jal dklsaj djald lkajdpkje123i -03012 dsd"
+                },
+                {
+                "title": "Death Note",
+                "src": "img/Anime/Death_Note.jpg",
+                "buttonTxt": "Learn more",
+                "des" : "dhflsdjfljfdsjjlfj aj sdjak dajs djalkdj jlkdjaklsd jal dklsaj djald lkajdpkje123i -03012 dsd"
+                },
+                {
+                "title": "Berserk",
+                "src": "img/Anime/Berserk.jpeg",
+                "buttonTxt": "Learn more",
+                "des" : "dhflsdjfljfdsjjlfj aj sdjak dajs djalkdj jlkdjaklsd jal dklsaj djald lkajdpkje123i -03012 dsd"
+            }]
+        },
+        {
+            "title" : "Educations & Major",
+            "location": "edu-cont",
+            "type": "banner",
+            "content": [
+                {
+                "title": "Phillip O Berry Academy",
+                "src": "https://upload.wikimedia.org/wikipedia/commons/1/17/Pob_cardinal.gif",
+                "buttonTxt": "Learn more",
+                "des" : "dhflsdjfljfdsjjlfj aj sdjak dajs djalkdj jlkdjaklsd jal dklsaj djald lkajdpkje123i -03012 dsd"
+                },
+                {
+                "title": "Unversity of North Carolina at Charlotte",
+                "src": "https://crva.imgix.net/UNCC-campus.jpeg?auto=compress%2Cformat&fit=crop&fm=webp&ixlib=php-3.1.0&q=80&v=1599589356&w=1000",
+                "buttonTxt": "Learn more",
+                "des" : "dhflsdjfljfdsjjlfj aj sdjak dajs djalkdj jlkdjaklsd jal dklsaj djald lkajdpkje123i -03012 dsd"
+                },
+                {
+                "title": "Computer Science",
+                "src": "img/cs-wordArt.png",
+                "buttonTxt": "Learn more",
+                "des" : "dhflsdjfljfdsjjlfj aj sdjak dajs djalkdj jlkdjaklsd jal dklsaj djald lkajdpkje123i -03012 dsd"
+            }]
+        },
+        {
+            "title" : "Projects Showcase",
+            "location" : "proj-cont",
+            "type" : "flat-grid",
+            "content": [
+            {
+            "title" : "First project",
+            "src" : "img/Projects/msfw-proj.png",
+            "buttonTxt": "Visit Site",
+            "des": "First website I've ever made.",
+            "link": "https://saffronsan.github.io/msfw/"
+            },
+            {
+            "title" : "Tele Search",
+            "src" : "img/Projects/tele-proj.png",
+            "buttonTxt": "Visit Site",
+            "des": "A website where you can find basic info one tv shows.",
+            "link": "https://saffronsan.github.io/Tele_Search/"
+            },
+            {
+            "title" : "Road to Hire - High School project",
+            "src" : "img/Projects/r2h-proj.png",
+            "buttonTxt": "Visit Site",
+            "des": "A website created for road to hire high school project.",
+            "link": "https://saffronsan.github.io/R2H-Project/"
+            },
+            {
+            "title" : "V-Tac",
+            "src" : "img/Projects/vTac-proj.png",
+            "buttonTxt": "Visit Site",
+            "des": "A website using Vue.js, lets you play tic-tac-toe; modes: 1v1 & bots.",
+            "link": "https://saffronsan.github.io/V-Tac/"
+            }]
+        }
+    ]
+}
