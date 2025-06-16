@@ -92,7 +92,6 @@ function onLoad(){
       }
     });
     document.querySelectorAll(".setting-cont").forEach((item)=>{
-      console.log(item.children[0].classList.contains("fa-moon"))
       item.addEventListener("click",()=>{
         if(item.children[0].classList.contains("fa-moon")){
           item.children[0].classList.remove("fa-moon");

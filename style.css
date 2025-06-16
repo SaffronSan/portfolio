@@ -200,17 +200,13 @@ header{
     color: var(--blue-600);
 }
 .nav-active{
-    color: var(--blue-800);
+    color: var(--blue-800) !important;
 }
 #desktop{
     display: none;
 }
 /*Footer */
-.hero-img > img{
-  width: 100%;
-  max-width: 30dvh;
-  height: auto;
-}
+
 footer{
     font-size: var(--text-b1);
 }
@@ -251,7 +247,7 @@ blockquote span{
 /*Contact Page*/
 .fourm > div > input,textarea{
     border: none;
-    background-color: white;
+    background-color: var(--background);
     outline: none;
     font-size: 1.25rem;
     padding: 1rem;
@@ -296,13 +292,16 @@ textarea{
     align-items: center;
 }
 .hero-img {
-    object-fit: contain;
-    height: 40rem;
+    margin-top: .5rem;
+    height: 30rem;
     width: 20rem;
 }
 .hero-img > img{
+    object-fit: cover;
     border-radius: var(--main-border);
     box-shadow: var(--shadow-sm);
+    width: 100%;
+    height: 100%;
 }
 .hero-text{
     width: 20rem;
@@ -401,6 +400,9 @@ textarea{
     .hero-img{
         height: 60rem;
         width: 30rem;
+    }
+    .hero-img > img{
+        object-fit: contain;
     }
     .hero-text{
         height: 20rem;
